@@ -22,6 +22,12 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+      static double rightSpeed(double forward, double turn) {
+      return forward - turn;
+    }
+      static double leftSpeed(double forward, double turn) {
+      return forward - turn;
+    }
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -92,26 +98,8 @@ public class Robot extends TimedRobot {
 
   /** This function is called once when test mode is enabled. */
   @Override
-  public void testInit();
-    static double leftSpeed(double forward, double turn) {
-      if(turn == -1.0) {
-        forward = 0.1;
-      }
-      if(turn == 1.0) {
-        forward = 1;
-      }
-      return 0.0;
-    }
-    static double rightSpeed(double forward, double turn) {
-      if(turn == -1.0) {
-        forward = 1.0;
-      }
-      if(turn == 1.0) {
-        forward = 0.1;
-      }
-      return 0.0;
-    }
-
+  public void testInit(); {}
+  
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {}
